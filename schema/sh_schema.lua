@@ -24,3 +24,7 @@ ix.util.Include("sv_hooks.lua")
 -- You'll need to manually include files in the meta/ folder, however.
 ix.util.Include("meta/sh_character.lua")
 ix.util.Include("meta/sh_player.lua")
+
+
+//anim class
+ix.anim.SetModelClass("models/humans/bms_cwork.mdl", "player")
