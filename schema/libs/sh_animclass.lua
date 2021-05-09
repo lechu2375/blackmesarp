@@ -1,0 +1,1 @@
+ix.anim.SetModelClass("models/humans/bms_cwork.mdl", "player")
