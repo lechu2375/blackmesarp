@@ -3,7 +3,7 @@
 -- whitelisted by an administrator.
 
 FACTION.name = "Naukowcy"
-FACTION.description = "Ludzie, którzy zajmuj¹ siê dzia³alnoœci¹ naukow¹."
+FACTION.description = "Ludzie, którzy zajmuj? si? dzia?alno?ci? naukow?."
 FACTION.color = Color(247, 159, 31)
 FACTION.pay = 15 -- How much money every member of the faction gets paid at regular intervals.
 
