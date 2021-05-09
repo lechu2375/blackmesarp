@@ -19,7 +19,7 @@ local classes = {
 	["func_door_rotating"] = true
 }
 	local LambdaColor = Color(251,126,20, 255 )
-	local message = "Wciśnij E by użyć"
+	local message = L("useEntity", "Press E to use")
 
 	surface.SetFont( "ixMonoMediumFont" )
 	local sizeX = surface.GetTextSize(message)/2
