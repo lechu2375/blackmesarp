@@ -6,24 +6,9 @@ PLUGIN.author = "Lechu2375"
 PLUGIN.description = "A Crosshair."
 
 if (CLIENT) then
-	local function drawdot( pos, size, col )
-		local color = col[2]
-		surface.SetDrawColor(color.r, color.g, color.b, color.a)
-		surface.DrawRect(pos[1] - size/2, pos[2] - size/2, size, size)
 
-		color = col[1]
-		surface.SetDrawColor(color.r, color.g, color.b, color.a)
-		surface.DrawOutlinedRect(pos[1] - size/2, pos[2] - size/2 , size, size)
-	end
 
 	local aimVector, punchAngle, ft, screen, scaleFraction, distance
-	local math_round = math.Round
-	local curGap = 0
-	local curAlpha = 0
-	local maxDistance = 1000 ^ 2
-	local crossSize = 4
-	local crossGap = 0
-	local colors = {color_black}
 	local filter = {}
 local classes = {
 	["ix_item"] = true,
