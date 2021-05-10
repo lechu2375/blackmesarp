@@ -1,6 +1,6 @@
 
 FACTION.name = "Pracownicy"
-FACTION.description = "Personel oœrodka badawczego Black Mesa."
+FACTION.description = "Personel o?rodka badawczego Black Mesa."
 FACTION.isDefault = true
 FACTION.color = Color(6, 82, 221)
 FACTION.pay = 10

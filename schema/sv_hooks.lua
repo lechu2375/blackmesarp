@@ -8,3 +8,6 @@ function Schema:PlayerUse(ply,ent )
         return false
     end
 end
+function Schema:PlayerJoinedClass(client)
+    client:KillSilent()
+end
