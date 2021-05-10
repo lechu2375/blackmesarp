@@ -10,4 +10,6 @@ ix.char.RegisterVar("xp", { //GetXp SetXp
 	bNoDisplay = true
 })
 
-ix.util.Include("sv_meta.lua")
+ix.util.Include("sh_meta.lua")
+
+

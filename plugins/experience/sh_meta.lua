@@ -1,9 +1,11 @@
 local CHAR = ix.meta.character
 
-function CHAR:AddXP(amount)
-    local XpAmount = self:GetXp()
-    self:SetXp(XpAmount+amount)
-    //maybe notification here??
+if(SERVER)then
+    function CHAR:AddXP(amount)
+        local XpAmount = self:GetXp()
+        self:SetXp(XpAmount+amount)
+        //maybe notification here??
+    end
 end
 
 local Exp = PLUGIN.lvlUpExp

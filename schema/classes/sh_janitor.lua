@@ -5,5 +5,5 @@
 CLASS.name = "Konserwator Powierzchni Płaskich"
 CLASS.faction = FACTION_WORKERS
 CLASS.isDefault = true
-
+CLASS.RequiredLevel = 1
 CLASS_JANITOR = CLASS.index
