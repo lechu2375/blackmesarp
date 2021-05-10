@@ -7,3 +7,5 @@ Models ->
 https://steamcommunity.com/sharedfiles/filedetails/?id=237159280
 https://steamcommunity.com/sharedfiles/filedetails/?id=1292204702
 https://steamcommunity.com/sharedfiles/filedetails/?id=126181015
+Effects 
+https://steamcommunity.com/sharedfiles/filedetails/?id=2483396299
