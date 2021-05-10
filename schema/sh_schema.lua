@@ -28,3 +28,14 @@ ix.util.Include("meta/sh_player.lua")
 
 //anim class
 ix.anim.SetModelClass("models/humans/bms_cwork.mdl", "player")
+
+game.AddParticles( "particles/teleporters.pcf" )
+PrecacheParticleSystem( "teleport_lambda_exit")
+
+if ( SERVER ) then
+	-- A test console command to see if the particle works, spawns the particle where the player is looking at. 
+	concommand.Add( "particleitup", function( ply, cmd, args )
+		local pos = ply:GetEyeTrace().HitPos
+		SpawnWithEffect("npc_vj_bmsn_bullsquid",pos)
+	end )
+end
