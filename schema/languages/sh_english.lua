@@ -14,4 +14,5 @@ LANGUAGE = {
 	useEntity = "Press E to use",
 	gainExperience = "You have gainded %d experience",
 	pickingUp = "Picking up",
+	notYourJob = "That's not your job"
 }

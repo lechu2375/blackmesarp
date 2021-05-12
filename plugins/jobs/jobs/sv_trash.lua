@@ -23,6 +23,7 @@ JOB.GenerateTask = function()
     TrashEnt:Spawn()
     TrashEnt:GetPhysicsObject():Sleep()
     TrashEnt:SetUseType( SIMPLE_USE )
+    TrashEnt:SetNWInt("IsTrash",1)
     if(!Jobs.ActiveTasks["Janitor"].ents) then
         Jobs.ActiveTasks["Janitor"].ents = {}
     end

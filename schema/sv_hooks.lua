@@ -9,5 +9,5 @@ function Schema:PlayerUse(ply,ent )
     end
 end
 function Schema:PlayerJoinedClass(client)
-    client:KillSilent()
+    //client:KillSilent()
 end

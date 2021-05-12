@@ -30,7 +30,7 @@ local classes = {
 		surface.SetDrawColor(251,126,20,255)
 		//print(entity:GetClass())
 		
-		if (IsValid(entity) and  classes[entity:GetClass()] and
+		if (IsValid(entity) and  (classes[entity:GetClass()] or entity:GetNWInt("IsTrash"))  and
 			entity:GetPos():DistToSqr(trace.StartPos) <= 16384) then
 			surface.DrawCircle( center.x, center.y, 35,251,126,20,255)
 			draw.SimpleText(message,"ixMonoMediumFont",center.x-sizeX,center.y+50,LambdaColor,TEXT_ALIGN_LEFT,TEXT_ALIGN_TOP )

@@ -30,9 +30,15 @@ ix.command.Add("checkjobs", {
 if ( SERVER ) then
     function PLUGIN:PlayerUse(ply,ent )
 
-        if(ent.IsTrash) then //trash job handle
+        if(ent.IsTrash and ((ply.TrashNotifyDelay or 1) <CurTime())) then //trash job handle
             local class = ply:GetCharacter():GetClass()
-            if(class==CLASS_JANITOR and !ply.PickingUpTrash) then
+            if!(class==CLASS_JANITOR)then
+                ply:NotifyLocalized("notYourJob")
+                ply.TrashNotifyDelay = CurTime()+1
+                return false 
+            end
+
+            if(!ply.PickingUpTrash) then
                 ply:SetAction(L("pickingUp",ply), 2) // for displaying the progress bar
                 ply.PickingUpTrash = true
                 ply:DoStaredAction(ent, function()
