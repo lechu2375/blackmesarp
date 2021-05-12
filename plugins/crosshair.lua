@@ -10,14 +10,14 @@ if (CLIENT) then
 
 	local aimVector, punchAngle, ft, screen, scaleFraction, distance
 	local filter = {}
-local classes = {
-	["ix_item"] = true,
-	["func_button"] = true,
-	["func_door"] = true,
-	["prop_door_rotating"] = true,
-	["class C_BaseEntity"] = true,
-	["func_door_rotating"] = true
-}
+	local classes = {
+		["ix_item"] = true,
+		["func_button"] = true,
+		["func_door"] = true,
+		["prop_door_rotating"] = true,
+		["class C_BaseEntity"] = true,
+		["func_door_rotating"] = true
+	}
 	local LambdaColor = Color(251,126,20, 255 )
 	local message = L("useEntity", "Press E to use")
 
