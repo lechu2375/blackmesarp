@@ -26,3 +26,24 @@ ix.command.Add("checkjobs", {
         end
 	end
 })
+
+if ( SERVER ) then
+    function PLUGIN:PlayerUse(ply,ent )
+
+        if(ent.IsTrash) then //trash job handle
+            local class = ply:GetCharacter():GetClass()
+            if(class==CLASS_JANITOR and !ply.PickingUpTrash) then
+                ply:SetAction(L("pickingUp",ply), 2) // for displaying the progress bar
+                ply.PickingUpTrash = true
+                ply:DoStaredAction(ent, function()
+                    ent:Remove()
+                    Jobs.Tasks.Janitor.Reward(ply)
+                    ply.PickingUpTrash = false
+                end,2,function() ply.PickingUpTrash = false end,100)              
+            end
+        end
+
+
+
+    end
+end

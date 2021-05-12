@@ -17,8 +17,12 @@ JOB.GenerateTask = function()
     local TrashEnt = ents.Create("prop_physics")
     TrashEnt:SetModel(RandomModel)
     TrashEnt:SetPos(RandomPos)
-    TrashEnt:SetCollisionGroup(COLLISION_GROUP_WORLD)
-    TrashEnt.isTrash = true
+    TrashEnt:SetCollisionGroup(COLLISION_GROUP_WEAPON)
+    TrashEnt:DropToFloor()
+    TrashEnt.IsTrash = true
+    TrashEnt:Spawn()
+    TrashEnt:GetPhysicsObject():Sleep()
+    TrashEnt:SetUseType( SIMPLE_USE )
     if(!Jobs.ActiveTasks["Janitor"].ents) then
         Jobs.ActiveTasks["Janitor"].ents = {}
     end
@@ -35,7 +39,11 @@ JOB.CanActivate = function()
     return false
 end
 
-print("essa")
+JOB.Reward = function(player)
+    player:GetCharacter():AddXP(20)
+end
+
+
 
 
 RegisterJob(JOB)

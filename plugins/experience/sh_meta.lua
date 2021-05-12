@@ -4,6 +4,7 @@ if(SERVER)then
     function CHAR:AddXP(amount)
         local XpAmount = self:GetXp()
         self:SetXp(XpAmount+amount)
+        self:GetPlayer():NotifyLocalized("gainExperience", amount)
         //maybe notification here??
     end
 end

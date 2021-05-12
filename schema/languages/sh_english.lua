@@ -11,5 +11,7 @@
 -- L("serverWelcome", "John Lua") would return a string with the text "Welcome to the server, John Lua!".
 
 LANGUAGE = {
-	useEntity = "Press E to use"
+	useEntity = "Press E to use",
+	gainExperience = "You have gainded %d experience",
+	pickingUp = "Picking up",
 }
