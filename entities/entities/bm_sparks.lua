@@ -25,6 +25,7 @@ ENT.RenderGroup = RENDERGROUP_OTHER
             self:GetPhysicsObject():EnableGravity(false)
             self:GetPhysicsObject():EnableMotion(false)
             self:SetUseType(SIMPLE_USE)
+            self.BadAnswers = 0
         end
         
         self:DrawShadow(false)
@@ -80,7 +81,15 @@ if(SERVER) then
                 Jobs.Tasks.Mechanic.Reward(activator)
                 //caller.ActiveQuestion = false
             else
-                print("bad")
+                self:EmitSound("weapons/stunstick/stunstick_impact1.wav")
+                caller:TakeDamage(10,self,self)
+                /*
+                self.BadAnswers = self.BadAnswers + 1
+                if(self.BadAnswers>4) then
+
+                    self:Remove()
+                end*/
+                //TODO Effect + damage for bad answer
                 //caller.ActiveQuestion = false
             end
         end,"")

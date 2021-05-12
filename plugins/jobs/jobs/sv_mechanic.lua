@@ -6,7 +6,7 @@ JOB.SparkPositions = {
     Vector("-2391.107666 -1998.419556 634.046631"),
     Vector("-2391.107910 -2175.271484 634.065247")
 }
-
+//This is electrican job but I need to think about one more job for him and make electrician class
 JOB.GenerateTask = function()
     local RandomPos = JOB.SparkPositions[math.random(1,#JOB.SparkPositions)]
 
