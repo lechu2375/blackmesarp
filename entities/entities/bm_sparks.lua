@@ -23,7 +23,10 @@ ENT.RenderGroup = RENDERGROUP_OTHER
             self:SetCollisionGroup(COLLISION_GROUP_NONE)
             self:SetRenderMode( RENDERGROUP_OTHER )
             self:GetPhysicsObject():EnableGravity(false)
+            self:GetPhysicsObject():EnableMotion(false)
+            self:SetUseType(SIMPLE_USE)
         end
+        
         self:DrawShadow(false)
         if(CLIENT)then
             timer.Create("SparkMaker"..self:EntIndex(),3,0, function()
@@ -61,7 +64,28 @@ function ENT:MakeSpark()
         end
     end
 end
-
+if(SERVER) then
+    function ENT:Use(activator,caller)
+        if!(caller:GetCharacter():GetClass()==CLASS_TECHNICIAN) then return false end
+        //if(caller.ActiveQuestion) then return false end
+        //caller.ActiveQuestion = true
+        local RandomFirst = math.random(-100,100)
+        local RandomSecond = math.random(-100,100)
+        local Answer = RandomFirst+RandomSecond
+        local Question = string.format("Answer: %d + %d",RandomFirst,RandomSecond)
+        caller:RequestString("Question",Question,function(text)
+            if(tonumber(text)==Answer) then
+                print("good")
+                self:Remove()
+                Jobs.Tasks.Mechanic.Reward(activator)
+                //caller.ActiveQuestion = false
+            else
+                print("bad")
+                //caller.ActiveQuestion = false
+            end
+        end,"")
+    end
+end
 if ( SERVER ) then return end 
 
 function ENT:DrawModel()

@@ -8,12 +8,13 @@ Jobs.ActiveTasks = Jobs.ActiveTasks or {}
 
 if(SERVER) then
     function RegisterJob(JobTable)
+        
         Jobs.Tasks[JobTable.UniqueID] = JobTable
     end
 end
 
 ix.util.Include("jobs/sv_trash.lua")
-
+ix.util.Include("jobs/sv_mechanic.lua")
 
 ix.command.Add("checkjobs", {
 	description = "ehe",

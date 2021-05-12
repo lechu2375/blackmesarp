@@ -3,4 +3,6 @@ LANGUAGE = {
 	gainExperience = "Zdobyłeś %d doświadczenia",
 	pickingUp = "Podnoszenie",
 	notYourJob = "To nie twoje zadanie",
+	answer = "Odpowiedź",
+	question = "Pytanie",
 }
