@@ -15,6 +15,7 @@ end
 
 ix.util.Include("jobs/sv_trash.lua")
 ix.util.Include("jobs/sv_mechanic.lua")
+ix.util.Include("jobs/cl_mechanic.lua")
 
 ix.command.Add("checkjobs", {
 	description = "ehe",

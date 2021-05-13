@@ -17,4 +17,6 @@ LANGUAGE = {
 	notYourJob = "That's not your job",
 	answer = "Answer",
 	question = "Question",
+	connectWires = "Drag wires from the left to the right connecting right color",
+	switch = "Switch",
 }

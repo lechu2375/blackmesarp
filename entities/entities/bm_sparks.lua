@@ -68,31 +68,14 @@ end
 if(SERVER) then
     function ENT:Use(activator,caller)
         if!(caller:GetCharacter():GetClass()==CLASS_TECHNICIAN) then return false end
-        //if(caller.ActiveQuestion) then return false end
-        //caller.ActiveQuestion = true
-        local RandomFirst = math.random(-100,100)
-        local RandomSecond = math.random(-100,100)
-        local Answer = RandomFirst+RandomSecond
-        local Question = string.format("Answer: %d + %d",RandomFirst,RandomSecond)
-        caller:RequestString("Question",Question,function(text)
-            if(tonumber(text)==Answer) then
-                print("good")
-                self:Remove()
-                Jobs.Tasks.Mechanic.Reward(activator)
-                //caller.ActiveQuestion = false
-            else
-                self:EmitSound("weapons/stunstick/stunstick_impact1.wav")
-                caller:TakeDamage(10,self,self)
-                /*
-                self.BadAnswers = self.BadAnswers + 1
-                if(self.BadAnswers>4) then
 
-                    self:Remove()
-                end*/
-                //TODO Effect + damage for bad answer
-                //caller.ActiveQuestion = false
-            end
-        end,"")
+        if(caller.ActiveWireConnection and IsValid(caller.ActiveWireConnection)) then //hmm
+
+            return
+        end
+        caller.ActiveWireConnection = self
+        net.Start("connectWires")
+        net.Send(caller)
     end
 end
 if ( SERVER ) then return end 

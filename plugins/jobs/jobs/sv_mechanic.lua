@@ -1,3 +1,17 @@
+util.AddNetworkString("connectWires")
+net.Receive("connectWires", function(len,ply)
+    if(!(ply.ActiveWireConnection)) then
+        return 
+    end
+    local result = net.ReadBool()
+    if(result) then
+        ply.ActiveWireConnection:Remove()
+        ply.ActiveWireConnection = nil
+        Jobs.Tasks.Mechanic.Reward(ply)
+    else
+        ply:TakeDamage(10,ply.ActiveWireConnection,ply.ActiveWireConnection)
+    end
+end)
 local JOB = {}
 JOB.UniqueID = "Mechanic"
 JOB.Allowed = {CLASS_TECHNICIAN}
