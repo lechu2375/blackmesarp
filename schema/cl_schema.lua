@@ -4,13 +4,19 @@ COLOR_HALFLIFE = Color(251,126,20)
 local function DoDrop( self, panels, bDoDrop, Command, x, y )
 	if ( bDoDrop ) then
 		for k, v in pairs( panels ) do
-			v:SetParent(self)
-            v:DockMargin(5,5,5,5)
-            v:Dock(FILL)
+            
+            if(self.left and v:GetBackgroundColor()~=self:GetBackgroundColor()) then
+                continue end
+            if(self:GetChild(0)) then continue end
+                v:SetParent(self)
+                v:DockMargin(5,5,5,5)
+                v:Dock(FILL)
+                
+
 		end
 	end
 end
-
+local wave = Material( "models/rendertarget")
 concommand.Add( "test2", function()
 
 	local frame = vgui.Create( "DPanel" )
@@ -42,12 +48,11 @@ concommand.Add( "test2", function()
             local a = y2-y1
 
             local rotation =math.deg(math.atan2( a,b ))*-1
-                //surface.DrawRect(x1, y1, 50, 50)
-                //surface.DrawRect(x2, y2, 50, 50)
-                draw.NoTexture()
-                surface.SetDrawColor(v:GetBackgroundColor())
-                surface.DrawTexturedRectRotated( CenterX, CenterY,distance, 10,rotation )
-                //surface.DrawLine( x1, y1-3, x2, y2-3 )
+            //surface.SetMaterial(wave)
+            draw.NoTexture()
+            surface.SetDrawColor(v:GetBackgroundColor())
+            surface.DrawTexturedRectRotated( CenterX, CenterY,distance, 10,rotation )
+            //surface.DrawLine( x1, y1-3, x2, y2-3 )
             
         end
     end
@@ -87,11 +92,12 @@ concommand.Add( "test2", function()
 
     colorsCopy = table.Copy(colors)
     for i = 1, 4 do
-        local key,color = table.Random( colorsCopy )
+        local key,color = table.Random( colorsCopy ) //returns value and key
 
         colorsCopy[color] = nil
     	local but = left:Add( "DPanel" )
         frame.left[color] = but
+        but.left = true
 		but:SetText( i )
 		but:SetHeight(frame:GetTall()/8)
         but:DockMargin( 0,50, 0, 0 )
