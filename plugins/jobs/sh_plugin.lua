@@ -58,4 +58,11 @@ if ( SERVER ) then
 
 
     end
+
+    function PLUGIN:AcceptInput(ent,input,activator,caller,value )
+        if((input=="Open" or input=="Unlock") and IsValid(ent.BrokenEffect)) then
+            return true
+        end
+        
+    end
 end

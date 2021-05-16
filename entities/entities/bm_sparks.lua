@@ -87,6 +87,7 @@ if(SERVER) then
 		entity:SetPos(trace.HitPos)
 		entity:Spawn()
 		if (door:IsDoor() and !IsValid(door.BrokenEffect)) then
+            entity:SetPos(door:GetPos())
             entity:SetParent(door,1)
             door.BrokenEffect = entity
 		end
