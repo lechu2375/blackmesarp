@@ -62,17 +62,17 @@ if ( SERVER ) then
         if((input=="Open" or input=="Close") and IsValid(ent.BrokenEffect)) then
             local random = math.random(0,3)
             if(random==3) then
-                ent:Fire("unlock")
+                ent:Fire("unlock") //hmm
                 ent:Fire("open")
                 timer.Simple(0.2, function()
-                    ent:Fire("close")
+                    ent:Fire("close") //:trollface:
                 end)
             else
                 return true
             end
         end
 
-        if((input=="Toggle") and IsValid(ent.BrokenEffect)) then
+        if((input=="Toggle") and IsValid(ent.BrokenEffect)) then //some doors open by EntFire Toggle instead of OPEN and CLOSE
             return true
         end
     end
