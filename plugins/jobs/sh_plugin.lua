@@ -31,7 +31,11 @@ ix.command.Add("checkjobs", {
 
 if ( SERVER ) then
     function PLUGIN:PlayerUse(ply,ent )
-
+        print(ent.BrokenEffect)
+        if(IsValid(ent.BrokenEffect)) then
+            print("esae")
+            return false
+        end
         if(ent.IsTrash and ((ply.TrashNotifyDelay or 1) <CurTime())) then //trash job handle
             local class = ply:GetCharacter():GetClass()
             if!(class==CLASS_JANITOR)then

@@ -19,6 +19,7 @@ ENT.RenderGroup = RENDERGROUP_OTHER
         if(SERVER)then
             self:SetModel("models/props_c17/gravestone003a.mdl")
             self:SetSolid(SOLID_BBOX)
+            self:SetMoveType(MOVETYPE_NONE)
             self:PhysicsInit(SOLID_BBOX)
             self:SetCollisionGroup(COLLISION_GROUP_NONE)
             self:SetRenderMode( RENDERGROUP_OTHER )
@@ -77,6 +78,22 @@ if(SERVER) then
         net.Start("connectWires")
         net.Send(caller)
     end
+
+    function ENT:SpawnFunction(client, trace)
+		local door = trace.Entity
+		local position = trace.HitPos
+
+		local entity = ents.Create("bm_sparks")
+		entity:SetPos(trace.HitPos)
+		entity:Spawn()
+		if (door:IsDoor() and !IsValid(door.BrokenEffect)) then
+            entity:SetParent(door,1)
+            door.BrokenEffect = entity
+		end
+
+		return entity
+	end
+
 end
 if ( SERVER ) then return end 
 
