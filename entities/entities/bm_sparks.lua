@@ -14,7 +14,7 @@ ENT.Spawnable = true
 ENT.AdminOnly = true
 ENT.RenderGroup = RENDERGROUP_OTHER
 
-
+//This effect can be spawned manualy, If you will be watching at door then it will be parented to it check ENT:SpawnFunction method
 	function ENT:Initialize()
         if(SERVER)then
             self:SetModel("models/props_c17/gravestone003a.mdl")
