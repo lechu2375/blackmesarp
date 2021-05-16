@@ -31,9 +31,8 @@ ix.command.Add("checkjobs", {
 
 if ( SERVER ) then
     function PLUGIN:PlayerUse(ply,ent )
-        print(ent.BrokenEffect)
+        
         if(IsValid(ent.BrokenEffect)) then
-            print("esae")
             return false
         end
         if(ent.IsTrash and ((ply.TrashNotifyDelay or 1) <CurTime())) then //trash job handle
@@ -60,9 +59,21 @@ if ( SERVER ) then
     end
 
     function PLUGIN:AcceptInput(ent,input,activator,caller,value )
-        if((input=="Open" or input=="Unlock") and IsValid(ent.BrokenEffect)) then
+        if((input=="Open" or input=="Close") and IsValid(ent.BrokenEffect)) then
+            local random = math.random(0,3)
+            if(random==3) then
+                ent:Fire("unlock")
+                ent:Fire("open")
+                timer.Simple(0.2, function()
+                    ent:Fire("close")
+                end)
+            else
+                return true
+            end
+        end
+
+        if((input=="Toggle") and IsValid(ent.BrokenEffect)) then
             return true
         end
-        
     end
 end
